@@ -24,6 +24,7 @@
             :href="next.href"
             class="subheading mx-3"
             target="_blank"
+            rel="noopener norefferrer"
           >
             {{ next.text }}
           </a>
@@ -40,6 +41,7 @@
             :href="link.href"
             class="subheading mx-3"
             target="_blank"
+            rel="noopener norefferrer"
           >
             {{ link.text }}
           </a>
@@ -61,11 +63,11 @@ export default {
       },
       {
         text: "Vutify",
-        href: "https://vuetifyjs.com/",
+        href: "https://next.vuetifyjs.com/en/",
       },
       {
         text: "JSONPlaceholder",
-        href: "http://jsonplaceholder.typicode.com/",
+        href: "https://jsonplaceholder.typicode.com/",
       },
       {
         text: "Krates",
