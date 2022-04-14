@@ -200,17 +200,6 @@ export default {
         }, 2000);
       }
     },
-    confirmVarification() {
-      if (this.radioValue === "1") {
-        this.iconName = "Progress-circular";
-        this.dialog = false;
-        this.patchJsonplaceholderFavicons();
-        // this.putJsonbinFavicons();
-        // this.putKratesFavicons();
-      } else {
-        this.snackbarTimeout("Warning");
-      }
-    },
     getJsonplaceholderFavicons() {
       const getFavicons = async () => {
         let result = await Service.getJsonplaceholderFaviconsJson();
@@ -326,12 +315,23 @@ export default {
         console.log("put krates error =", error);
       });
     },
+    confirmVarification() {
+      if (this.radioValue === "1") {
+        this.iconName = "Progress-circular";
+        this.dialog = false;
+        // this.patchJsonplaceholderFavicons();
+        // this.putJsonbinFavicons();
+        this.putKratesFavicons();
+      } else {
+        this.snackbarTimeout("Warning");
+      }
+    },
   },
   created() {
     this.iconName = "Progress-circular";
-    this.getJsonplaceholderFavicons();
+    // this.getJsonplaceholderFavicons();
     // this.getJsonbinFavicons();
-    // this.getKratesFavicons();
+    this.getKratesFavicons();
   },
 };
 </script>
