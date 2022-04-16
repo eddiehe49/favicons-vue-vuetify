@@ -33,7 +33,7 @@
           <code style="font-size: larger; color: #409eff">
             {{ localFavicons[index].likes }}
           </code>
-          folks like this avatar.
+          folks like this favicon.
         </p>
         <p className="rightWords" v-else style="font-weight: bold">...</p>
       </div>
