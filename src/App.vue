@@ -126,4 +126,9 @@ nav {
     }
   }
 }
+
+a {
+  /* font-weight: bold; */
+  color: #1867c0;
+}
 </style>

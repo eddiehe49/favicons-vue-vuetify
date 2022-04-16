@@ -4,9 +4,12 @@
     <!-- <header class="hello-header"> -->
     <div style="width: 100%; margin-top: 2%">
       <div style="width: 37.5%; float: left">
-        <p className="leftWords">
-          {{ localFavicons ? localFavicons[index].words : null }}
-        </p>
+        <p
+          className="leftWords"
+          v-html="
+            localFavicons ? localFavicons[index].words : 'Hold on please.'
+          "
+        ></p>
       </div>
       <div style="width: 25%; float: left">
         <svg
@@ -26,12 +29,13 @@
         </svg>
       </div>
       <div style="width: 37.5%; float: left">
-        <p className="rightWords">
+        <p className="rightWords" v-if="localFavicons">
           <code style="font-size: larger; color: #409eff">
-            {{ localFavicons ? localFavicons[index].likes : null }}
+            {{ localFavicons[index].likes }}
           </code>
           folks like this avatar.
         </p>
+        <p className="rightWords" v-else style="font-weight: bold">...</p>
       </div>
     </div>
     <div style="clear: both" class="cardHolder">
