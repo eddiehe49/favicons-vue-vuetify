@@ -11,7 +11,19 @@
       </v-col>
 
       <v-col class="mb-4">
-        <h1 class="display-2 font-weight-bold mb-3">This is an about page.</h1>
+        <h1 class="display-2 font-weight-bold mb-3">What are favicons?</h1>
+        <strong>
+          Check out this
+          <a
+            href="https://eddiehe.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >site</a
+          >
+          on your desktop browser.
+          <br />
+          Do you see the tiny icon in the left of the tab? That's a favicon!
+        </strong>
       </v-col>
 
       <v-col class="mb-5" cols="12">
