@@ -127,7 +127,7 @@
         right
       >
         <v-icon large> mdi-heart-multiple </v-icon>
-        Thank you for your like!
+        Thanks for your thumbs up!
         <v-btn color="blue" variant="text" @click="successSnackbar = false">
           Close
         </v-btn>

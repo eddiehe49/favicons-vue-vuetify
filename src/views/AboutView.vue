@@ -11,7 +11,10 @@
       </v-col>
 
       <v-col class="mb-4">
-        <h1 class="display-2 font-weight-bold mb-3">What are favicons?</h1>
+        <v-btn color="primary" @click.stop="drawer = !drawer"
+          >What are favicons?</v-btn
+        >
+        <!-- <h1 class="display-2 font-weight-bold mb-3">What are favicons?</h1>
         <strong>
           Check out this
           <a
@@ -23,7 +26,7 @@
           on your desktop browser.
           <br />
           Do you see the tiny icon in the left of the tab? That's a favicon!
-        </strong>
+        </strong> -->
       </v-col>
 
       <v-col class="mb-5" cols="12">
@@ -61,6 +64,28 @@
       </v-col>
     </v-row>
   </v-container>
+  <v-layout>
+    <v-navigation-drawer
+      v-model="drawer"
+      temporary
+      position="bottom"
+      width="180"
+    >
+      Check out this
+      <a
+        href="https://eddiehe.vercel.app/"
+        target="_blank"
+        rel="noopener noreferrer"
+        style="color: #1867c0"
+        >site</a
+      >
+      on your desktop browser.
+      <br />
+      Do you see the tiny icon in the left of the tab?
+      <br />
+      That's a favicon!
+    </v-navigation-drawer>
+  </v-layout>
 </template>
 
 <script>
@@ -97,6 +122,7 @@ export default {
         href: "https://eddiehe.super.site",
       },
     ],
+    drawer: null,
   }),
   mounted() {
     const internalInstance = getCurrentInstance();
