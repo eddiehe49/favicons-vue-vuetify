@@ -64,6 +64,7 @@
 </template>
 
 <script>
+import { getCurrentInstance } from "vue";
 export default {
   name: "HelloWorld",
 
@@ -97,5 +98,11 @@ export default {
       },
     ],
   }),
+  mounted() {
+    const internalInstance = getCurrentInstance();
+    //  全局变量
+    let global = internalInstance.appContext.config.globalProperties;
+    global.$waline.update();
+  },
 };
 </script>
