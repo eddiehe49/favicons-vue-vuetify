@@ -2,10 +2,10 @@
   <div class="hello">
     <!-- <h1>{{ msg }}</h1> -->
     <!-- <header class="hello-header"> -->
-    <div style="width: 100%; margin-top: 2%">
+    <div style="width: 100%; padding-top: 2%">
       <div style="width: 37.5%; float: left">
         <p
-          className="leftWords"
+          class="leftWords"
           v-html="
             localFavicons ? localFavicons[index].words : 'Hold on please.'
           "
@@ -29,13 +29,13 @@
         </svg>
       </div>
       <div style="width: 37.5%; float: left">
-        <p className="rightWords" v-if="localFavicons">
+        <p class="rightWords" v-if="localFavicons">
           <code style="font-size: larger; color: #409eff">
             {{ localFavicons[index].likes }}
           </code>
           folks like this favicon.
         </p>
-        <p className="rightWords" v-else style="font-weight: bold">...</p>
+        <p class="rightWords" v-else style="font-weight: bold">...</p>
       </div>
     </div>
     <div style="clear: both" class="cardHolder">
@@ -70,7 +70,7 @@
         </v-container>
       </v-item-group>
     </div>
-    <v-row justify="center" style="margin-top: 2%; margin-bottom: 2%">
+    <v-row justify="center" style="padding: 2% 0 2% 0">
       <v-dialog v-model="dialog" scrollable>
         <template v-slot:activator="{ props }">
           <v-btn
@@ -198,15 +198,15 @@ export default {
     getJsonplaceholderFavicons() {
       const getFavicons = async () => {
         let result = await Service.getJsonplaceholderFaviconsJson();
-        console.log("get jsonplaceholder result =", result);
+        console.log("get jsonplaceholder result: ", result);
         this.localFavicons = result.data;
         this.index = 0;
         this.iconName = "mdi-heart-multiple-outline";
-        console.log("this.localFavicons =", this.localFavicons);
+        console.log("this.localFavicons: ", this.localFavicons);
       };
       getFavicons().catch((error) => {
         this.snackbarTimeout("Error");
-        console.log("get jsonplaceholder error =", error);
+        console.log("get jsonplaceholder error: ", error);
       });
     },
     patchJsonplaceholderFavicons() {
@@ -217,7 +217,7 @@ export default {
             likes: this.localFavicons[this.index].likes + 1,
           }
         );
-        console.log("patch jsonplaceholder result =", result);
+        console.log("patch jsonplaceholder result: ", result);
         this.localFavicons[this.index].likes += 1;
         this.iconName = "mdi-heart-multiple";
         this.successSnackbar = true;
@@ -231,21 +231,21 @@ export default {
       };
       patchFavicons().catch((error) => {
         this.snackbarTimeout("Error");
-        console.log("patch jsonplaceholder error =", error);
+        console.log("patch jsonplaceholder error: ", error);
       });
     },
     getJsonbinFavicons() {
       const getFavicons = async () => {
         let result = await Service.getJsonbinFaviconsJson();
-        console.log("get jsonbin result =", result);
+        console.log("get jsonbin result: ", result);
         this.localFavicons = result.data.record.favicons;
         this.index = 0;
         this.iconName = "mdi-heart-multiple-outline";
-        console.log("this.localFavicons =", this.localFavicons);
+        console.log("this.localFavicons: ", this.localFavicons);
       };
       getFavicons().catch((error) => {
         this.snackbarTimeout("Error");
-        console.log("get jsonbin error =", error);
+        console.log("get jsonbin error: ", error);
       });
     },
     putJsonbinFavicons() {
@@ -255,7 +255,7 @@ export default {
       favicons[this.index].likes += 1;
       const putFavicons = async () => {
         let result = await Service.putJsonbinFaviconsJson({ favicons });
-        console.log("put jsonbin result =", result);
+        console.log("put jsonbin result: ", result);
         this.localFavicons[this.index].likes += 1;
         this.iconName = "mdi-heart-multiple";
         this.successSnackbar = true;
@@ -269,21 +269,21 @@ export default {
       };
       putFavicons().catch((error) => {
         this.snackbarTimeout("Error");
-        console.log("put jsonbin error =", error);
+        console.log("put jsonbin error: ", error);
       });
     },
     getKratesFavicons() {
       const getFavicons = async () => {
         let result = await Service.getKratesFaviconsJson();
-        console.log("get krates result =", result);
+        console.log("get krates result: ", result);
         this.localFavicons = result.data[0].favicons;
         this.index = 0;
         this.iconName = "mdi-heart-multiple-outline";
-        console.log("this.localFavicons =", this.localFavicons);
+        console.log("this.localFavicons: ", this.localFavicons);
       };
       getFavicons().catch((error) => {
         this.snackbarTimeout("Error");
-        console.log("get krates error =", error);
+        console.log("get krates error: ", error);
       });
     },
     putKratesFavicons() {
@@ -293,7 +293,7 @@ export default {
       favicons[this.index].likes += 1;
       const putFavicons = async () => {
         let result = await Service.putKratesFaviconsJson({ favicons });
-        console.log("krates put result =", result);
+        console.log("krates put result: ", result);
         this.localFavicons[this.index].likes += 1;
         this.iconName = "mdi-heart-multiple";
         this.successSnackbar = true;
@@ -307,7 +307,7 @@ export default {
       };
       putFavicons().catch((error) => {
         this.snackbarTimeout("Error");
-        console.log("put krates error =", error);
+        console.log("put krates error: ", error);
       });
     },
     confirmVarification() {
@@ -346,29 +346,22 @@ export default {
 
 .leftWords {
   font-size: larger;
-  padding-left: 15%;
-  padding-right: 5%;
   justify-content: right;
   text-align: right;
-  margin: 0 auto;
-  margin-top: 20%;
-  margin-left: 10%;
+  margin: 20% 5% 0 25%;
   vertical-align: middle;
 }
 
 .rightWords {
   font-size: larger;
-  padding-left: 5%;
   justify-content: left;
   text-align: left;
-  margin: 0 auto;
-  margin-top: 40%;
+  margin: 40% 0 0 5%;
   vertical-align: middle;
 }
 
 .cardHolder {
-  margin-left: 20%;
-  margin-right: 20%;
+  margin: 0 20% 0 20%;
   height: 150px;
   overflow: hidden;
   overflow-x: auto;
