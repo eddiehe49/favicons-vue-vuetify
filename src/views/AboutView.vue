@@ -11,9 +11,9 @@
       </v-col>
 
       <v-col class="mb-4">
-        <v-btn color="primary" @click.stop="drawer = !drawer"
+        <!-- <v-btn color="primary" @click.stop="drawer = !drawer"
           >What are favicons?</v-btn
-        >
+        > -->
         <!-- <h1 class="display-2 font-weight-bold mb-3">What are favicons?</h1>
         <strong>
           Check out this

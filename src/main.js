@@ -3,12 +3,13 @@ import App from './App.vue'
 import vuetify from './plugins/vuetify'
 import { loadFonts } from './plugins/webfontloader'
 import router from './router'
-import Waline from "@waline/client";
+import { init } from "@waline/client";
+import '@waline/client/dist/waline.css';
 
 const locale = {
   placeholder: "For a healthy network environment, comments will be displayed after review."
 }
-const waline = Waline({
+const waline = init({
   el: '#waline',
   serverURL: "https://eddiehe-favicons-waline.vercel.app",
   lang: 'en',
