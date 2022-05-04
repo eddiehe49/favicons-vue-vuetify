@@ -14,8 +14,8 @@
             <template v-slot:activator="{ props }">
               <v-list-item
                 v-bind="props"
-                title="Avatars"
-                value="avatars"
+                title="Profile Pictures"
+                value="profile pictures"
                 prepend-icon="mdi-guy-fawkes-mask"
               ></v-list-item>
             </template>
@@ -30,9 +30,9 @@
             <v-divider />
             <v-list-item
               key="3"
-              value="avatars-jsonplaceholder"
+              value="profile-pictures-jsonplaceholder"
               title="JSONPlaceholder"
-              href="https://my-json-server.typicode.com/eddiehe49/avatars-json/"
+              href="https://my-json-server.typicode.com/eddiehe49/profile-pictures/"
               target="_blank"
               rel="noopener norefferrer"
             ></v-list-item>
@@ -63,7 +63,7 @@
               key="4"
               value="favicons-jsonplaceholder"
               title="JSONPlaceholder"
-              href="https://my-json-server.typicode.com/eddiehe49/favicons-json/"
+              href="https://my-json-server.typicode.com/eddiehe49/favicons/"
               target="_blank"
               rel="noopener norefferrer"
             ></v-list-item>
@@ -93,8 +93,8 @@ export default {
   data: () => ({
     open: ["Users"],
     avatars: [
-      ["DarkMode", "https://eddiehe-avatars-darkmode.vercel.app/"],
-      ["LightMode", "https://eddiehe-avatars-lightmode.onrender.com/"],
+      ["DarkMode", "https://eddiehe-profile-pictures-darkmode.vercel.app/"],
+      ["LightMode", "https://eddiehe-profile-pictures-lightmode.onrender.com/"],
     ],
     favicons: [
       ["Auto", "https://eddiehe-favicons.vercel.app/"],

@@ -2,6 +2,51 @@
   <div class="hello">
     <!-- <h1>{{ msg }}</h1> -->
     <!-- <header class="hello-header"> -->
+    <v-dialog v-model="faviconsDialog" persistent>
+      <v-card>
+        <v-card-title class="text-h5"> What are favicons? </v-card-title>
+        <img src="faviconsIntroduction.jpg" alt="favicons introduction" />
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="green darken-1" text @click="faviconsDialog = false">
+            Close
+          </v-btn>
+          <v-btn color="green darken-1" text @click="tipsDialog = true">
+            OK
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+    <v-dialog v-model="tipsDialog" persistent>
+      <v-card>
+        <v-card-title class="text-h5"> Tips </v-card-title>
+        <v-card-text>
+          <v-list-item two-line>
+            <v-list-item-header>
+              <v-list-item-title>There is a like button.</v-list-item-title>
+              <v-list-item-subtitle
+                >Give your preferred favicon a thumb up!</v-list-item-subtitle
+              >
+              <br />
+              <v-list-item-title>Scroll down!</v-list-item-title>
+              <v-list-item-subtitle
+                >Have fun in the comment section.</v-list-item-subtitle
+              >
+            </v-list-item-header>
+          </v-list-item>
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+            color="green darken-1"
+            text
+            @click="(tipsDialog = false), (faviconsDialog = false)"
+          >
+            OK
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
     <div style="width: 100%; padding-top: 2%">
       <div style="width: 37.5%; float: left">
         <p
@@ -71,7 +116,7 @@
       </v-item-group>
     </div>
     <v-row justify="center" style="padding: 2% 0 2% 0">
-      <v-dialog v-model="dialog" scrollable>
+      <v-dialog v-model="verificationDialog" scrollable>
         <template v-slot:activator="{ props }">
           <v-btn
             v-if="iconName === 'mdi-heart-multiple-outline'"
@@ -109,7 +154,11 @@
           </v-card-text>
           <v-divider></v-divider>
           <v-card-actions>
-            <v-btn color="blue-darken-1" text @click="dialog = false">
+            <v-btn
+              color="blue-darken-1"
+              text
+              @click="verificationDialog = false"
+            >
               Close
             </v-btn>
             <v-btn color="blue-darken-1" text @click="confirmVarification">
@@ -173,7 +222,9 @@ export default {
     svgDefaultFill: "#939597",
     iconName: "mdi-heart-multiple-outline",
     radioValue: "",
-    dialog: false,
+    verificationDialog: false,
+    faviconsDialog: true,
+    tipsDialog: false,
     successSnackbar: false,
     warningSnackbar: false,
     errorSnackbar: false,
@@ -313,7 +364,7 @@ export default {
     confirmVarification() {
       if (this.radioValue === "1") {
         this.iconName = "Progress-circular";
-        this.dialog = false;
+        this.verificationDialog = false;
         // this.patchJsonplaceholderFavicons();
         // this.putJsonbinFavicons();
         this.putKratesFavicons();
