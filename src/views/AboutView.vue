@@ -11,9 +11,9 @@
       </v-col>
 
       <v-col class="mb-4">
-        <!-- <v-btn color="primary" @click.stop="drawer = !drawer"
+        <v-btn color="primary" @click.stop="showFaviconsDialog"
           >What are favicons?</v-btn
-        > -->
+        >
         <!-- <h1 class="display-2 font-weight-bold mb-3">What are favicons?</h1>
         <strong>
           Check out this
@@ -91,8 +91,8 @@
 <script>
 import { getCurrentInstance } from "vue";
 export default {
+  emits: ["showDialogs"],
   name: "HelloWorld",
-
   data: () => ({
     PoweredBy: [
       {
@@ -124,6 +124,11 @@ export default {
     ],
     drawer: null,
   }),
+  methods: {
+    showFaviconsDialog() {
+      this.$emit("showDialogs");
+    },
+  },
   mounted() {
     const internalInstance = getCurrentInstance();
     //  全局变量

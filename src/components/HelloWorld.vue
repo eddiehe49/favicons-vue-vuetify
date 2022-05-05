@@ -2,51 +2,6 @@
   <div class="hello">
     <!-- <h1>{{ msg }}</h1> -->
     <!-- <header class="hello-header"> -->
-    <v-dialog v-model="faviconsDialog" persistent>
-      <v-card>
-        <v-card-title class="text-h5"> What are favicons? </v-card-title>
-        <img src="faviconsIntroduction.jpg" alt="favicons introduction" />
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn color="green darken-1" text @click="faviconsDialog = false">
-            Close
-          </v-btn>
-          <v-btn color="green darken-1" text @click="tipsDialog = true">
-            OK
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
-    <v-dialog v-model="tipsDialog" persistent>
-      <v-card>
-        <v-card-title class="text-h5"> Tips </v-card-title>
-        <v-card-text>
-          <v-list-item two-line>
-            <v-list-item-header>
-              <v-list-item-title>There is a like button.</v-list-item-title>
-              <v-list-item-subtitle
-                >Give your preferred favicon a thumb up!</v-list-item-subtitle
-              >
-              <br />
-              <v-list-item-title>Scroll down!</v-list-item-title>
-              <v-list-item-subtitle
-                >Have fun in the comment section.</v-list-item-subtitle
-              >
-            </v-list-item-header>
-          </v-list-item>
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn
-            color="green darken-1"
-            text
-            @click="(tipsDialog = false), (faviconsDialog = false)"
-          >
-            OK
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
     <div style="width: 100%; padding-top: 2%">
       <div style="width: 37.5%; float: left">
         <p
@@ -223,8 +178,6 @@ export default {
     iconName: "mdi-heart-multiple-outline",
     radioValue: "",
     verificationDialog: false,
-    faviconsDialog: true,
-    tipsDialog: false,
     successSnackbar: false,
     warningSnackbar: false,
     errorSnackbar: false,

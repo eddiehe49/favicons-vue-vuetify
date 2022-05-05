@@ -80,12 +80,59 @@
       </v-navigation-drawer>
     </v-layout>
   </v-card>
-
   <!-- <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
   </nav> -->
-  <router-view />
+  <router-view @showDialogs="showFaviconsDialog" />
+  <v-dialog v-model="faviconsDialog" persistent>
+    <v-card>
+      <v-card-title class="text-h5"> What are favicons? </v-card-title>
+      <img src="faviconsIntroduction.jpg" alt="favicons introduction" />
+      <v-card-actions>
+        <v-spacer></v-spacer>
+        <v-btn color="green darken-1" text @click="faviconsDialog = false">
+          Close
+        </v-btn>
+        <v-btn
+          color="green darken-1"
+          text
+          @click="
+            faviconsDialog = false;
+            tipsDialog = true;
+          "
+        >
+          OK
+        </v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
+  <v-dialog v-model="tipsDialog" persistent>
+    <v-card>
+      <v-card-title class="text-h5"> Tips </v-card-title>
+      <v-card-text>
+        <v-list-item two-line>
+          <v-list-item-header>
+            <v-list-item-title>There is a like button.</v-list-item-title>
+            <v-list-item-subtitle
+              >Give your preferred favicon a thumb up!</v-list-item-subtitle
+            >
+            <br />
+            <v-list-item-title>Scroll down!</v-list-item-title>
+            <v-list-item-subtitle
+              >Have fun in the comment section.</v-list-item-subtitle
+            >
+          </v-list-item-header>
+        </v-list-item>
+      </v-card-text>
+      <v-card-actions>
+        <v-spacer></v-spacer>
+        <v-btn color="green darken-1" text @click="tipsDialog = false">
+          OK
+        </v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
 </template>
 
 <script>
@@ -101,7 +148,14 @@ export default {
       ["DarkMode", "https://eddiehe-favicons-darkmode.vercel.app/"],
       ["LightMode", "https://eddiehe-favicons-lightmode.onrender.com/"],
     ],
+    faviconsDialog: true,
+    tipsDialog: false,
   }),
+  methods: {
+    showFaviconsDialog() {
+      this.faviconsDialog = true;
+    },
+  },
 };
 </script>
 
