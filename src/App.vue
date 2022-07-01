@@ -3,79 +3,38 @@
     <v-layout>
       <v-navigation-drawer theme="dark" expand-on-hover rail>
         <v-list density="compact" nav>
-          <v-list-item
-            prepend-icon="mdi-bread-slice"
-            title="Home"
-            value="home"
-            to="/"
-          ></v-list-item>
+          <v-list-item prepend-icon="mdi-bread-slice" title="Home" value="home" to="/"></v-list-item>
 
           <v-list-group>
             <template v-slot:activator="{ props }">
-              <v-list-item
-                v-bind="props"
-                title="Profile Pictures"
-                value="profile pictures"
-                prepend-icon="mdi-guy-fawkes-mask"
-              ></v-list-item>
+              <v-list-item v-bind="props" title="Profile Pictures" value="profile pictures"
+                prepend-icon="mdi-guy-fawkes-mask"></v-list-item>
             </template>
-            <v-list-item
-              v-for="([title, href], i) in avatars"
-              :key="i"
-              :value="title"
-              :title="title"
-              :href="href"
-              rel="noopener norefferrer"
-            ></v-list-item>
+            <v-list-item v-for="([title, href], i) in profilePictures" :key="i" :value="title" :title="title"
+              :href="href" rel="noopener norefferrer"></v-list-item>
             <v-divider />
-            <v-list-item
-              key="3"
-              value="profile-pictures-jsonplaceholder"
-              title="JSONPlaceholder"
-              href="https://my-json-server.typicode.com/eddiehe49/profile-pictures/"
-              target="_blank"
-              rel="noopener norefferrer"
-            ></v-list-item>
+            <v-list-item key="3" value="profile-pictures-jsonplaceholder" title="JSONPlaceholder"
+              href="https://my-json-server.typicode.com/eddiehe49/profile-pictures/" target="_blank"
+              rel="noopener norefferrer"></v-list-item>
           </v-list-group>
 
           <v-list-group>
             <template v-slot:activator="{ props }">
-              <v-list-item
-                v-bind="props"
-                title="Favicons"
-                value="favicons"
-                prepend-icon="mdi-unicorn-variant"
-              ></v-list-item>
+              <v-list-item v-bind="props" title="Favicons" value="favicons" prepend-icon="mdi-unicorn-variant">
+              </v-list-item>
             </template>
-            <v-list-item
-              v-for="([title, href], i) in favicons"
-              :key="i"
-              :value="title"
-              :title="title"
-              :href="href"
-              rel="noopener norefferrer"
-              :disabled="
+            <v-list-item v-for="([title, href], i) in favicons" :key="i" :value="title" :title="title" :href="href"
+              rel="noopener norefferrer" :disabled="
                 this.$route.path === '/' && title === 'LightMode' ? true : false
-              "
-            ></v-list-item>
+              "></v-list-item>
             <v-divider />
-            <v-list-item
-              key="4"
-              value="favicons-jsonplaceholder"
-              title="JSONPlaceholder"
-              href="https://my-json-server.typicode.com/eddiehe49/favicons/"
-              target="_blank"
-              rel="noopener norefferrer"
-            ></v-list-item>
+            <v-list-item key="4" value="favicons-jsonplaceholder" title="JSONPlaceholder"
+              href="https://my-json-server.typicode.com/eddiehe49/favicons/" target="_blank" rel="noopener norefferrer">
+            </v-list-item>
           </v-list-group>
 
-          <v-list-item
-            prepend-icon="mdi-glass-mug-variant"
-            title="About"
-            value="about"
-            to="/about"
-            :disabled="this.$route.path === '/about' ? true : false"
-          ></v-list-item>
+          <v-list-item prepend-icon="mdi-glass-mug-variant" title="About" value="about" to="/about"
+            :disabled="this.$route.path === '/about' ? true : false"></v-list-item>
         </v-list>
       </v-navigation-drawer>
     </v-layout>
@@ -94,14 +53,7 @@
         <v-btn color="green darken-1" text @click="faviconsDialog = false">
           Close
         </v-btn>
-        <v-btn
-          color="green darken-1"
-          text
-          @click="
-            faviconsDialog = false;
-            tipsDialog = true;
-          "
-        >
+        <v-btn color="green darken-1" text @click="faviconsDialog = false; tipsDialog = true">
           OK
         </v-btn>
       </v-card-actions>
@@ -114,14 +66,10 @@
         <v-list-item two-line>
           <v-list-item-header>
             <v-list-item-title>There is a like button.</v-list-item-title>
-            <v-list-item-subtitle
-              >Give your preferred favicon a thumb up!</v-list-item-subtitle
-            >
+            <v-list-item-subtitle>Give your preferred favicon a thumb up!</v-list-item-subtitle>
             <br />
             <v-list-item-title>Scroll down!</v-list-item-title>
-            <v-list-item-subtitle
-              >Have fun in the comment section.</v-list-item-subtitle
-            >
+            <v-list-item-subtitle>Have fun in the comment section.</v-list-item-subtitle>
           </v-list-item-header>
         </v-list-item>
       </v-card-text>
@@ -139,7 +87,7 @@
 export default {
   data: () => ({
     open: ["Users"],
-    avatars: [
+    profilePictures: [
       ["DarkMode", "https://eddiehe-profile-pictures-darkmode.vercel.app/"],
       ["LightMode", "https://eddiehe-profile-pictures-lightmode.onrender.com/"],
     ],
