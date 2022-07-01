@@ -14,8 +14,9 @@
     "roboto-fontface": "*",
     "vue": "^3.2.37",
     "vue-router": "^4.0.16",
-    "vuetify": "^3.0.0-beta.0",
-    "webfontloader": "^1.6.28"
+    "vuetify": "^3.0.0-beta.5",
+    "webfontloader": "^1.6.28",
+    "webpack-plugin-vuetify": "^2.0.0-alpha.11"
   },
   "devDependencies": {
     "@babel/core": "^7.18.6",
@@ -29,8 +30,7 @@
     "eslint-plugin-vue": "^9.1.1",
     "sass": "^1.53.0",
     "sass-loader": "^13.0.2",
-    "vue-cli-plugin-vuetify": "~2.5.1",
-    "vuetify-loader": "^2.0.0-alpha.0"
+    "vue-cli-plugin-vuetify": "~2.5.1"
   },
   "eslintConfig": {
     "root": true,
