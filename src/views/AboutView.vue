@@ -2,32 +2,19 @@
   <v-container>
     <v-row class="text-center">
       <v-col cols="12">
-        <v-img
-          :src="require('../assets/logo.svg')"
-          class="my-3"
-          contain
-          height="200"
-        />
+        <v-img :src="require('../assets/logo.svg')" class="my-3" contain height="200" />
       </v-col>
 
       <v-col class="mb-4">
-        <v-btn color="primary" @click.stop="showFaviconsDialog"
-          >What are favicons?</v-btn
-        >
+        <v-btn color="primary" @click.stop="showFaviconsDialog">What are favicons?</v-btn>
       </v-col>
 
       <v-col class="mb-5" cols="12">
         <h2 class="headline font-weight-bold mb-5">Powered by</h2>
 
         <v-row justify="center">
-          <a
-            v-for="(next, i) in PoweredBy"
-            :key="i"
-            :href="next.href"
-            class="subheading mx-3"
-            target="_blank"
-            rel="noopener norefferrer"
-          >
+          <a v-for="(next, i) in PoweredBy" :key="i" :href="next.href" class="subheading mx-3" target="_blank"
+            rel="noopener norefferrer">
             {{ next.text }}
           </a>
         </v-row>
@@ -37,14 +24,8 @@
         <h2 class="headline font-weight-bold mb-5">Coded by</h2>
 
         <v-row justify="center">
-          <a
-            v-for="(link, i) in codedBy"
-            :key="i"
-            :href="link.href"
-            class="subheading mx-3"
-            target="_blank"
-            rel="noopener norefferrer"
-          >
+          <a v-for="(link, i) in codedBy" :key="i" :href="link.href" class="subheading mx-3" target="_blank"
+            rel="noopener norefferrer">
             {{ link.text }}
           </a>
         </v-row>
@@ -52,20 +33,9 @@
     </v-row>
   </v-container>
   <v-layout>
-    <v-navigation-drawer
-      v-model="drawer"
-      temporary
-      position="bottom"
-      width="180"
-    >
+    <v-navigation-drawer v-model="drawer" temporary position="bottom" width="180">
       Check out this
-      <a
-        href="https://eddiehe.vercel.app/"
-        target="_blank"
-        rel="noopener noreferrer"
-        style="color: #1867c0"
-        >site</a
-      >
+      <a href="https://eddiehe.vercel.app/" target="_blank" rel="noopener noreferrer" style="color: #1867c0">site</a>
       on your desktop browser.
       <br />
       Do you see the tiny icon in the left of the tab?
