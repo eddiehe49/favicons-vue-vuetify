@@ -9,15 +9,6 @@ const jsonplaceholderApiClient = axios.create({
         'Content-Type': 'application/json'
     }
 })
-const jsonbinApiClient = axios.create({
-    baseURL: 'https://api.jsonbin.io/v3/b/' + process.env.VUE_APP_BIN_ID,
-    withCredentials: false,
-    headers: {
-        'X-Master-Key': '$2b$10$Dr3C03m96HY3V014' + process.env.VUE_APP_X_Master_Key,
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
-    }
-})
 const kratesApiClient = axios.create({
     baseURL: 'https://krat.es/' + process.env.VUE_APP_Krates_ID,
     withCredentials: false,
@@ -34,12 +25,6 @@ export default {
     },
     patchJsonplaceholderFaviconsJson(id, avatars) {
         return jsonplaceholderApiClient.patch('/favicons/' + id, avatars)
-    },
-    getJsonbinFaviconsJson() {
-        return jsonbinApiClient.get('/latest')
-    },
-    putJsonbinFaviconsJson(avatars) {
-        return jsonbinApiClient.put('', avatars)
     },
     getKratesFaviconsJson() {
         return kratesApiClient.get('/record/' + process.env.VUE_APP_Krates_record)

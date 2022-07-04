@@ -178,44 +178,6 @@ export default {
         console.log("patch jsonplaceholder error: ", error);
       });
     },
-    getJsonbinFavicons() {
-      const getFavicons = async () => {
-        let result = await Service.getJsonbinFaviconsJson();
-        console.log("get jsonbin result: ", result);
-        this.localFavicons = result.data.record.favicons;
-        this.index = 0;
-        this.iconName = "mdi-heart-multiple-outline";
-        console.log("this.localFavicons: ", this.localFavicons);
-      };
-      getFavicons().catch((error) => {
-        this.snackbarTimeout("Error");
-        console.log("get jsonbin error: ", error);
-      });
-    },
-    putJsonbinFavicons() {
-      // Coould not do (let tempAvatars=this.avatars), as tempAvatars will sync with this.avatars
-      let tempFavicons = JSON.stringify(this.localFavicons);
-      let favicons = JSON.parse(tempFavicons);
-      favicons[this.index].likes += 1;
-      const putFavicons = async () => {
-        let result = await Service.putJsonbinFaviconsJson({ favicons });
-        console.log("put jsonbin result: ", result);
-        this.localFavicons[this.index].likes += 1;
-        this.iconName = "mdi-heart-multiple";
-        this.successSnackbar = true;
-        setTimeout(() => {
-          console.log(
-            "2.5 s passed. Change heart-multiple to mdi-heart-multiple-outline."
-          );
-          this.iconName = "mdi-heart-multiple-outline";
-          this.successSnackbar = false;
-        }, 2500);
-      };
-      putFavicons().catch((error) => {
-        this.snackbarTimeout("Error");
-        console.log("put jsonbin error: ", error);
-      });
-    },
     getKratesFavicons() {
       const getFavicons = async () => {
         let result = await Service.getKratesFaviconsJson();
@@ -259,7 +221,6 @@ export default {
         this.iconName = "Progress-circular";
         this.verificationDialog = false;
         // this.patchJsonplaceholderFavicons();
-        // this.putJsonbinFavicons();
         this.putKratesFavicons();
       } else {
         this.snackbarTimeout("Warning");
@@ -269,7 +230,6 @@ export default {
   created() {
     this.iconName = "Progress-circular";
     // this.getJsonplaceholderFavicons();
-    // this.getJsonbinFavicons();
     this.getKratesFavicons();
   },
 };
